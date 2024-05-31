@@ -17,21 +17,21 @@ function App_3() {
         { banknots: 'RUBLS', value: 50, number: ' v1234567890' },
     ])
 
-    const[filter,setFilter]=useState("ALL")
+    const[filter,setFilter]=useState("")
 
     let currentMoney = money;
 
-    if(nameButton==="Dollars"){
+    if(filter==="Dollars"){
         currentMoney=money.filter(filteredMoney=>filteredMoney.banknots === "Dollars");
     }
 
-    if(nameButton==="RUBLS"){
+    if(filter==="RUBLS"){
         currentMoney=money.filter(filteredMoney=>filteredMoney.banknots === "RUBLS");
     }
 
 
     const onClickFilterHandler = (nameButton: string) => {
-        console.log(nameButton)
+        setFilter(nameButton)
     }
 
 
