@@ -23,7 +23,7 @@ export const Todolist_1 = ({title, tasks}: PropsType) => {
 							return <li key={task.id}>
 								   <input type="checkbox" checked={task.isDone}/>
 								   <span>{task.title}</span>
-								   <button>x</button>
+								   <button  onClick={() => alert(task.id)}>x</button>
 								   </li>
 						})}
 					</ul>
