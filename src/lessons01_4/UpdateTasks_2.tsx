@@ -1,6 +1,6 @@
+import { Button } from "../Button";
 import {FilterValuesType, TaskType} from "./App";
 import {ChangeEvent, KeyboardEvent, useState} from "react";
-import {Button} from "./Button";
 
 type PropsType = {
 	title: string
