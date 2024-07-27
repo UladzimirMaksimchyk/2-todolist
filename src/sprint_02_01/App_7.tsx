@@ -78,7 +78,7 @@ function App_7() {
 
 
 	const changeFilter = (filter: FilterValuesType, todolistId:string) => {
-		setFilter(filter)
+		setTodolists(todolists.map(tl=>tl.id === todolistId ? {...tl,filter: filter} :tl))
 	}
 
 
