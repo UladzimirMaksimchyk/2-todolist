@@ -81,6 +81,10 @@ function App_7() {
 		setTodolists(todolists.map(tl=>tl.id === todolistId ? {...tl,filter: filter} :tl))
 	}
 
+const removeTodolit = (todolistId:string) =>{
+	setTodolists(todolists.filter(tl => tl.id !== todolistId))
+}
+
 
 	let tasksForTodolist = tasks
 	if (filter === 'active') {
