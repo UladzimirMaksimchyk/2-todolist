@@ -57,6 +57,9 @@ export const Todolist_8 = (props: PropsType) => {
 	const removeTodolistHandler = () => {
 		removeTodolist(todolistId)
 	}
+const updateTaskHandler = () => {
+
+}
 
 	return (
 		<div>
