@@ -85,7 +85,10 @@ function App() {
 
     return (
         <div className="App">
-            <Todolist_9 title="What to learn"
+        {todolists.map((mapTodolists)=>{
+            return(
+                <Todolist_9
+                title="What to learn"
                 tasks={tasksForTodolist}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
@@ -93,6 +96,9 @@ function App() {
                 changeTaskStatus={changeStatus}
                 filter={filter}
             />
+
+            )
+        })}
         </div>
     );
 }
