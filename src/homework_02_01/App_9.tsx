@@ -69,14 +69,7 @@ function App() {
     }
 
 
-    let tasksForTodolist = tasks;
-
-    if (filter === "active") {
-        tasksForTodolist = tasks.filter(t => t.isDone === false);
-    }
-    if (filter === "completed") {
-        tasksForTodolist = tasks.filter(t => t.isDone === true);
-    }
+    // let tasksForTodolist = tasks;
 
     function changeFilter(value: FilterValuesType) {
         setFilter(value);
@@ -86,15 +79,25 @@ function App() {
     return (
         <div className="App">
         {todolists.map((mapTodolists)=>{
+
+            let tasksForTodolist=tasks[mapTodolists.id];
+
+            if (mapTodolists.filter === "active") {
+                tasksForTodolist = tasks[mapTodolists.id].filter(t => t.isDone === false);
+            }
+            if (mapTodolists.filter === "completed") {
+                tasksForTodolist = tasks[mapTodolists.id].filter(t => t.isDone === true);
+            }
+        
             return(
                 <Todolist_9
-                title="What to learn"
+                title={mapTodolists.title}
                 tasks={tasksForTodolist}
                 removeTask={removeTask}
                 changeFilter={changeFilter}
                 addTask={addTask}
                 changeTaskStatus={changeStatus}
-                filter={filter}
+                filter={mapTodolists.filter}
             />
 
             )
