@@ -84,9 +84,6 @@ export function Todolist_9(props: PropsType) {
                 onClick={onActiveClickHandler}>Active</button>
             <button className={props.filter === 'completed' ? "active-filter" : ""}
                 onClick={onCompletedClickHandler}>Completed</button>
-                            <button className={props.filter === 'completed' ? "active-filter" : ""}
-                onClick={onCompletedClickHandler}>Completed</button>
-
         </div>
     </div>
 }
