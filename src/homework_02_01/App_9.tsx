@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import './App.css';
 import { v1 } from 'uuid';
 import { Todolist_9 } from './Todolist_9'
 
@@ -10,7 +9,7 @@ export type todolistsType = {
 }
 export type FilterValuesType = "all" | "active" | "completed";
 
-function App() {
+export function App_9() {
 
     // let [tasks, setTasks] = useState([
     //     {id: v1(), title: "HTML&CSS", isDone: true},
@@ -48,31 +47,25 @@ function App() {
 
 
 
-    function removeTask(id: string) {
-        let filteredTasks = tasks.filter(t => t.id != id);
-        setTasks(filteredTasks);
+    function removeTask(todolistID:string,id: string) {
+        setTasks({...tasks,[todolistID]:tasks[todolistID].filter(t=>t.id !=id)});
     }
 
-    function addTask(title: string) {
-        let task = { id: v1(), title: title, isDone: false };
-        let newTasks = [task, ...tasks];
-        setTasks(newTasks);
+    function addTask(todolistId:string,title: string) {
+        let newTask = { id: v1(), title: title, isDone: false };
+        setTasks({...tasks,[todolistId]:[...tasks[todolistId],newTask]});
     }
 
-    function changeStatus(taskId: string, isDone: boolean) {
-        let task = tasks.find(t => t.id === taskId);
-        if (task) {
-            task.isDone = isDone;
-        }
+    function changeStatus(todolistId:string,taskId: string, isDone: boolean) {
 
-        setTasks([...tasks]);
+        setTasks({...tasks,[todolistId]:tasks[todolistId].map(m=>m.id===taskId ? {...m,isDone}:m)});
     }
 
 
     // let tasksForTodolist = tasks;
 
-    function changeFilter(value: FilterValuesType) {
-        setFilter(value);
+    function changeFilter(todolistId:string,value: FilterValuesType) {
+        setTodolists(todolists.map(filtered=>filtered.id===todolistId ?{...filtered,filter:value}:filtered));
     }
 
 
@@ -91,6 +84,8 @@ function App() {
         
             return(
                 <Todolist_9
+                key={mapTodolists.id}
+                todolistId={mapTodolists.id}
                 title={mapTodolists.title}
                 tasks={tasksForTodolist}
                 removeTask={removeTask}
@@ -106,4 +101,3 @@ function App() {
     );
 }
 
-export default App;
