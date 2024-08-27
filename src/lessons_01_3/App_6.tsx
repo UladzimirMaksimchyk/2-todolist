@@ -15,7 +15,7 @@ export function App_6() {
 	const [tasks, setTasks] = useState<TaskType[]>([
 		{id: v1(), title: 'HTML&CSS', isDone: true},
 		{id: v1(), title: 'JS', isDone: true},
-		{id: v1(), title: 'ReactJS', isDone: false},
+		{id: v1(), title: 'ReactJS', isDone: true},
 		{id: v1(), title: 'Redux', isDone: false},
 		{id: v1(), title: 'Typescript', isDone: false},
 		{id: v1(), title: 'RTK query', isDone: false},
